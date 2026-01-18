@@ -1,10 +1,17 @@
-# Booksplode Workflow: Universal Book Research System
+# Booksplode Workflow Configuration
+# Format: TOML
+# Version: 2.0 (Deep Research Edition)
+# Description: Advanced prompt engineering configurations for systemic knowledge extraction.
+# Author Persona: Knowledge Ops Architect
 
-## Overview
+## Meta
 
-**Booksplode** is a systematic workflow for conducting comprehensive research on business books and applying their principles to specific industries or use cases. The workflow produces a structured repository of insights, examples, critiques, and actionable applications.
-
-**Default Industry Focus: Crypto & Blockchain** — Phase 6 (Industry Applications) should always apply book principles to the cryptocurrency and blockchain industry unless otherwise specified.
+| Key | Value |
+|:----|:------|
+| Framework | Booksplode |
+| Version | 2.0.0 |
+| Supported Models | gpt-5.2, claude-4.5-opus, gemini-3-pro-preview |
+| Description | A protocol for forensic vetting, systemic deconstruction, and adversarial auditing of non-fiction texts. |
 
 ## Folder Naming Convention
 
@@ -33,228 +40,260 @@ Each book folder contains the following standardized files:
 
 ```
 {author-last-name}_{book-title-slug}/
-├── 01_authors_notes.md
-├── 02_core_framework.md
-├── 03_case_studies.md
-├── 04_real_world_applications.md
-├── 05_critiques_and_limitations.md
-├── 06_industry_applications.md
-├── 07_final_synthesis.md
+├── 00_vetting.md
+├── 01_deconstruction.md
+├── 02_red_teaming.md
+├── 03_application.md
 └── assets/
     └── (images, diagrams, etc.)
 ```
 
 ### File Descriptions
 
-| File | Purpose | Content |
-|:-----|:--------|:--------|
-| `01_authors_notes.md` | Author background and credibility | Biographical information, expertise, other works, why they're qualified to write this book |
-| `02_core_framework.md` | The book's main ideas and framework | Central concepts, principles, models, frameworks presented in the book |
-| `03_case_studies.md` | Examples from the book | Case studies, stories, and examples the authors use to illustrate their points |
-| `04_real_world_applications.md` | How others have applied the ideas | Success stories, implementations, real-world uses of the book's principles |
-| `05_critiques_and_limitations.md` | Critical analysis | Academic critiques, limitations, when the framework doesn't work, common misapplications |
-| `06_industry_applications.md` | Specific industry focus | Deep dive into applying principles to target industry (e.g., mortgage, SaaS, healthcare) |
-| `07_final_synthesis.md` | Comprehensive report | Executive summary, key takeaways, actionable recommendations, implementation roadmap |
-
-## Research Workflow
-
-### Phase 1: Author Research (30 minutes)
-**Goal:** Establish credibility and context
-
-**Tasks:**
-- Research author background, credentials, expertise
-- Find other books/articles by author
-- Identify author's research methodology
-- Note any biases or perspectives
-
-**Sources:**
-- Author's official website
-- LinkedIn profiles
-- Academic publications
-- Interviews and talks
-
-**Output:** `01_authors_notes.md`
+| File | Phase | Purpose |
+|:-----|:------|:--------|
+| `00_vetting.md` | Phase 0: The Gatekeeper | Forensic credibility audit of author and text provenance |
+| `01_deconstruction.md` | Phase 1: The Architect | Systemic deconstruction into formal system dynamics model |
+| `02_red_teaming.md` | Phase 2: The Skeptic | Adversarial interrogation and fallacy audit |
+| `03_application.md` | Phase 3: The Pragmatist | Contextual translation to specific user context via JTBD |
 
 ---
 
-### Phase 2: Core Framework Extraction (1 hour)
-**Goal:** Understand the book's central ideas
+## Phase 0: The Gatekeeper (Discovery & Vetting)
 
-**Tasks:**
-- Identify the main framework or model
-- Extract key principles and concepts
-- Document the "big idea" of the book
-- Create visual diagrams if applicable
+**Objective:** Establish author credibility, incentives, and origin.
 
-**Sources:**
-- Book introduction and conclusion
-- Official book website
-- Author's explanation of framework
-- Summary articles
+**Theoretical Basis:** Investigative Journalism, Survivorship Bias, Ghostwriting Forensics.
 
-**Output:** `02_core_framework.md`
+**Model Parameters:** `temperature = 0.2, top_p = 0.1` (Low randomness for factual checking)
 
----
+### System Message
 
-### Phase 3: Case Study Collection (1 hour)
-**Goal:** Gather examples that illustrate the principles
+**Role:** Senior Investigative Journalist & Forensic Epistemologist
 
-**Tasks:**
-- Document case studies from the book
-- Note specific examples and stories
-- Identify patterns in successful applications
-- Extract quotable insights
+> You are a skeptical, high-precision investigative journalist with a background in forensic accounting and academic peer review.
+> Your goal is not to summarize the book, but to audit the authority of the author and the provenance of the text.
+> You are allergic to marketing fluff, "thought leader" buzzwords, and unsubstantiated claims.
+> You prioritize "falsification" over verification.
 
-**Sources:**
-- Book chapters
-- Book summaries
-- Author's blog posts
-- Supplementary materials
+### Main Vetting Prompt
 
-**Output:** `03_case_studies.md`
+Perform a Forensic Credibility Audit on the book "{BOOK_TITLE}" by "{AUTHOR_NAME}".
 
----
+Investigate the following vectors deeply. Use a step-by-step chain of thought.
 
-### Phase 4: Real-World Applications Research (1-2 hours)
-**Goal:** Find how others have applied the ideas
+1.  **The Origin Story Audit (Survivorship Bias Check):**
+    *   Does the author's success stem from a repeatable process or a singular "lottery win" event (e.g., being early to a market)?
+    *   Reference the "Survivorship Bias" principle: identify any "Silent Evidence" (failed peers who used the same strategy).
+    *   If the author claims a "Universal Law," check if it holds true in contrasting industries.
 
-**Tasks:**
-- Search for companies using the framework
-- Find marketing campaigns based on principles
-- Identify success stories and metrics
-- Document specific tactics and strategies
+2.  **Incentive Structure & Funding Mapping:**
+    *   Who funds the author's research or institute? "Follow the money" to identify silent partners.
+    *   Is this book a "loss leader" for a consulting practice or software product? If so, flag potential conflict of interest in their recommendations.
+    *   Are there undisclosed relationships with the companies cited as case studies?
 
-**Sources:**
-- Marketing blogs and case studies
-- Company websites and campaigns
-- Reddit discussions
-- YouTube implementations
+3.  **Ghostwriting & Production Forensics:**
+    *   Analyze the "voice." Compare the lexical complexity of the text against the author's unscripted interviews or podcasts.
+    *   Look for "with" credits or vague acknowledgments to "editorial teams," which often signal ghostwriting.
+    *   If a mismatch exists, lower the "Authenticity Score."
 
-**Output:** `04_real_world_applications.md`
+4.  **Epistemic Foundation Check:**
+    *   Does the author rely on "anecdata" (stories) or longitudinal datasets?
+    *   Are the citations from peer-reviewed journals, or are they circular references to other pop-business books?
+    *   Check for "Pseudoscience Markers": use of vague "energy" terms, unfalsifiable claims, or reliance on testimonials over data.
+
+**Output Format:**
+Return a structured "Credibility Dossier" in Markdown including:
+*   **Trust Score (1-10):** With rigorous justification.
+*   **Red Flags:** A bulleted list of potential biases or conflicts.
+*   **Verification Status:** "Verified Expert," "Ghostwritten Brand," or "Pseudo-Expert."
+
+**Output:** `00_vetting.md`
 
 ---
 
-### Phase 5: Critical Analysis (1 hour)
-**Goal:** Understand limitations and critiques
+## Phase 1: The Architect (Systemic Deconstruction)
 
-**Tasks:**
-- Search for academic critiques
-- Identify when framework fails
-- Document common misapplications
-- Note oversimplifications or gaps
+**Objective:** Extract the mental model and causal loops.
 
-**Sources:**
-- Academic papers
-- Critical book reviews
-- Reddit discussions
-- Industry expert opinions
+**Theoretical Basis:** System Dynamics (Meadows/Sterman), Causal Loop Diagrams.
 
-**Output:** `05_critiques_and_limitations.md`
+**Model Parameters:** `temperature = 0.0, top_p = 0.0` (Deterministic output for logic extraction)
 
----
+### System Message
 
-### Phase 6: Industry-Specific Application (2 hours)
-**Goal:** Apply principles to target industry
+**Role:** Expert Systems Theorist & Logic Modeler
 
-**Tasks:**
-- Research industry-specific challenges
-- Map book principles to industry pain points
-- Develop concrete application strategies
-- Create industry-specific examples
+> You are an expert in Systems Dynamics, Causal Loop Diagramming, and Propositional Logic.
+> Your task is to strip away all narrative, anecdotes, and emotional language from the text.
+> You care only about variables, relationships, stocks, flows, and feedback loops.
+> You translate prose into functional logic.
 
-**Sources:**
-- Industry research reports
-- Trade publications
-- Industry-specific case studies
-- Competitor analysis
+### Extraction Prompt
 
-**Output:** `06_industry_applications.md`
+Deconstruct the core argument of "{BOOK_TITLE}" into a formal System Dynamics Model.
 
----
+**Instructions:**
+1.  **Discard the Fluff:** Ignore all anecdotes, testimonials, and "hero stories" unless they contain a specific, quantifiable data point linking two variables.
+2.  **Ontological Extraction:** Identify the key Nouns that act as "Stocks" (accumulations) and "Flows" (rates of change). (e.g., "Customer Trust," "Cash Flow," "Innovation Rate").
+3.  **Map Causal Links:** Determine how Variable A affects Variable B.
+    *   Is it a Positive Link (S: Same direction)? (e.g., More A -> More B)
+    *   Is it a Negative Link (O: Opposite direction)? (e.g., More A -> Less B)
+    *   **Crucial:** Identify *Delays*. Where is there a time lag between cause and effect?
+4.  **Identify Loops:** Find the circular relationships.
+    *   **Reinforcing Loops (R):** Engines of growth or collapse (exponential change).
+    *   **Balancing Loops (B):** Mechanisms of stability or stagnation (goal-seeking behavior).
 
-### Phase 7: Synthesis and Recommendations (1-2 hours)
-**Goal:** Create actionable final report
+**Output Requirement:**
+Provide the output in `Mermaid.js` graph syntax for a flowchart, followed by a detailed explanation of the "Leverage Points" (places to intervene in the system).
 
-**Tasks:**
-- Synthesize all research findings
-- Create executive summary
-- Develop implementation roadmap
-- Provide specific recommendations
-- Include tables, frameworks, and visuals
+Example Syntax:
+```mermaid
+graph TD
+    A -->|increases| B(Customer Acquisition)
+    B -->|increases| C(Revenue)
+    C -->|increases| A
+    C -->|increases| D(R&D Budget)
+    D -.->|DELAYS| E(Product Quality)
+    E -->|increases| B
+    style D fill:#f9f,stroke:#333,stroke-width:2px
+```
 
-**Sources:**
-- All previous research files
-- Additional synthesis as needed
-
-**Output:** `07_final_synthesis.md`
+**Output:** `01_deconstruction.md`
 
 ---
 
-## Total Time Estimate
+## Phase 2: The Skeptic (Interrogation & Red Teaming)
 
-**Comprehensive Research:** 7-10 hours per book
+**Objective:** Challenge the premises and identify fallacies.
 
-**Quick Research:** 3-4 hours per book (skip phases 4-5)
+**Theoretical Basis:** Red Teaming, Cognitive Biases (Kahneman/Tversky), Falsification (Popper).
 
-## Quality Standards
+**Model Parameters:** `temperature = 0.7, top_p = 0.8` (Higher creativity for adversarial thinking)
 
-### Each file should include:
-- Clear section headings
-- Well-structured paragraphs (not just bullet points)
-- Tables for comparative information
-- Inline citations with sources
-- Blockquotes for key insights
-- Concrete examples, not abstractions
+### System Message
 
-### Avoid:
-- Excessive bullet points
-- Generic summaries without specifics
-- Unsourced claims
-- Jargon without explanation
-- Abstract concepts without concrete examples
+**Role:** Hostile Red Team Lead & Cognitive Bias Auditor
 
-## Research Sources Checklist
+> You are a "Red Team" leader tasked with finding vulnerabilities in a proposed strategy.
+> You are also an expert in cognitive biases (Kahneman/Tversky) and logical fallacies.
+> Your goal is to break the argument. You assume the book is wrong until proven right.
+> You act as a hostile peer reviewer.
 
-For each book, consult:
+### Interrogation Prompt
 
-- [ ] Official book website
-- [ ] Author's website and blog
-- [ ] Book introduction/conclusion
-- [ ] 3+ detailed book summaries
-- [ ] Author interviews (video/podcast)
-- [ ] Academic papers citing the book
-- [ ] Reddit discussions about the book
-- [ ] Real-world application examples
-- [ ] Critical reviews and critiques
-- [ ] Industry-specific applications
+Conduct a "Pre-Mortem" and Fallacy Audit on the arguments presented in "{BOOK_TITLE}".
 
-## Output Formats
+**Step 1: The Fallacy Scan**
 
-### Primary Format
-All files use **Markdown (.md)** format for maximum portability and readability.
+Scan the text for the "Nine Delusions" of business management (Rosenzweig), specifically:
 
-### Optional Exports
-- PDF (for client delivery)
-- Presentation slides (for workshops)
-- One-page summary (for quick reference)
+*   **The Halo Effect:** Is the author attributing success to culture/leadership without controlling for market performance? Are they cherry-picking winners?
+*   **The Delusion of Correlation/Causality:** Does the author confuse "associated with" for "caused by"? Flag any claim lacking a proposed mechanism.
+*   **The Delusion of Absolute Performance:** Does the author ignore the competitive landscape? (e.g., "Do X to succeed," ignoring that competitors are also doing X).
+
+**Step 2: The Pre-Mortem Simulation**
+
+Imagine a user implements the advice in this book perfectly, yet fails spectacularly 3 years later.
+
+*   Construct a narrative explaining how and why they failed.
+*   What hidden risks, external variables, or system delays did the book ignore? (e.g., Macroeconomic shifts, Competitor reaction, Internal resistance).
+
+**Step 3: The Counter-Evidence Search**
+
+Generate a list of search queries or data points that, if found, would disprove the book's central thesis. (e.g., "Find companies with 'Great Culture' that went bankrupt.")
+
+*   Search for "Anti-Case Studies": Failed companies that followed this exact advice.
+
+**Output:**
+A "Vulnerability Assessment Report" listing High, Medium, and Low risks of applying this book's advice.
+
+**Output:** `02_red_teaming.md`
+
+---
+
+## Phase 3: The Pragmatist (Contextual Translation via JTBD)
+
+**Objective:** Apply insights to a specific user context.
+
+**Theoretical Basis:** Jobs-to-be-Done (Christensen/Ulwick), Due Diligence Checklists.
+
+**Model Parameters:** `temperature = 0.5`
+
+### System Message
+
+**Role:** Strategic Consultant & Implementation Specialist
+
+> You are a pragmatic consultant specializing in Outcome-Driven Innovation and Jobs-to-be-Done (JTBD).
+> Your goal is to translate abstract theory into concrete, Monday-morning actions.
+> You bridge the gap between "Book Concept" and "User Reality."
+
+### JTBD Translation Prompt
+
+I am a {USER_ROLE} in the {INDUSTRY} industry. My current primary struggle is {CURRENT_CHALLENGE}.
+
+Using the insights from "{BOOK_TITLE}":
+
+**1. Define the "Job":** What "Job" was I trying to get done by reading this book?
+   *   Use JTBD syntax: "Help me [Action] so that I can [Outcome] while avoiding [Constraint]".
+   *   Identify Functional, Social, and Emotional dimensions of this job.
+
+**2. The Translation Matrix:**
+   *   Take the top 3 abstract concepts from the book (from Phase 1).
+   *   Translate them into specific tactics for my industry/role.
+   *   Example: If the book says "Increase feedback loops," and I am in Construction, the tactic might be "Daily site stand-ups" (not "Weekly email surveys").
+
+**3. The "Monday Morning" Checklist:**
+Create a prioritized list of 5 immediate, executable actions I can take next week to implement these ideas.
+   *   Format this as a "Due Diligence Checklist" (Yes/No verifications).
+   *   Include "Success Metrics" for each action.
+   *   Include "Failure Modes" to watch out for.
+
+**Output:**
+A strategic memo addressed to me, formatted for immediate execution.
+
+**Output:** `03_application.md`
+
+---
+
+## Implementation Strategy
+
+To successfully implement this workflow within a broader automation architecture (e.g., Python scripts or CI/CD pipelines), adhere to the following protocol:
+
+1.  **Parsing and Loading:** Utilize a standard parser such as `tomli` (Python) or `toml-rs` (Rust) to ingest the configuration file. The structure is designed to be language-agnostic.
+2.  **Dynamic Variable Injection:** The placeholders `{BOOK_TITLE}`, `{AUTHOR_NAME}`, `{USER_ROLE}`, and `{CURRENT_CHALLENGE}` are mandatory injection points. Attempting to run the prompts without these specific context keys will result in generic, low-value hallucinations.
+3.  **Sequential Chaining:** The workflow is designed as a directed acyclic graph (DAG). The output of Phase 1 (The Mermaid.js graph) should be programmatically captured and injected as "Context" into Phase 2. This allows the Red Team to attack the *specific nodes* of the system model, rather than the general text, significantly increasing the precision of the critique.
+
+---
+
+## Workflow Summary
+
+The "Booksplode" workflow addresses the critical inefficiency in modern knowledge work: the gap between information consumption and systemic application. By rigorously structuring the prompts across four distinct phases, we transform the LLM from a passive summarizer into an active partner in epistemic auditing.
+
+| Phase | Name | Function |
+|:------|:-----|:---------|
+| Phase 0 | The Gatekeeper | Filters out low-credibility noise |
+| Phase 1 | The Architect | Extracts the underlying causal logic |
+| Phase 2 | The Skeptic | Stress-tests that logic against reality |
+| Phase 3 | The Pragmatist | Compiles the validated logic into executable instructions |
+
+---
 
 ## Repository Structure
 
 ```
 booksplode/
 ├── README.md (Overview of the Booksplode system)
-├── WORKFLOW.md (This document)
+├── BOOKSPLODE_WORKFLOW.md (This document)
+├── READING_LIST.md (Queue of books to research)
 ├── TEMPLATE/ (Template files for new books)
-│   ├── 01_authors_notes.md
-│   ├── 02_core_framework.md
-│   ├── 03_case_studies.md
-│   ├── 04_real_world_applications.md
-│   ├── 05_critiques_and_limitations.md
-│   ├── 06_industry_applications.md
-│   └── 07_final_synthesis.md
-├── heath_made-to-stick/ (Example: First book)
-│   ├── 01_authors_notes.md
-│   ├── 02_core_framework.md
+│   ├── 00_vetting.md
+│   ├── 01_deconstruction.md
+│   ├── 02_red_teaming.md
+│   └── 03_application.md
+├── heath_made-to-stick/ (Example book)
+│   ├── 00_vetting.md
+│   ├── 01_deconstruction.md
 │   └── ...
 └── [future books]/
 ```
@@ -265,9 +304,9 @@ booksplode/
 
 1. **Create folder** using naming convention: `{author}_{book-slug}`
 2. **Copy template files** from `TEMPLATE/` folder
-3. **Follow workflow phases** 1-7 in order
+3. **Follow workflow phases** 0-3 in order
 4. **Commit after each phase** for version control
-5. **Create final synthesis** when all research is complete
+5. **Create final application** when all research is complete
 
 ### Quick Start Command
 
@@ -275,40 +314,36 @@ booksplode/
 # Create new book folder from template
 AUTHOR="author-lastname"
 BOOK="book-title-slug"
-mkdir -p "$AUTHOR_$BOOK"
-cp TEMPLATE/* "$AUTHOR_$BOOK/"
-cd "$AUTHOR_$BOOK"
+mkdir -p "${AUTHOR}_${BOOK}"
+cp TEMPLATE/* "${AUTHOR}_${BOOK}/"
+cd "${AUTHOR}_${BOOK}"
 ```
 
-## Customization
+## Quality Standards
 
-The workflow can be customized based on:
+### Each file should include:
+- Clear section headings
+- Well-structured paragraphs (not just bullet points)
+- Tables for comparative information
+- Inline citations with sources
+- Blockquotes for key insights
+- Concrete examples, not abstractions
+- Mermaid.js diagrams where applicable (especially Phase 1)
 
-- **Time available**: Skip phases 4-5 for quick research
-- **Industry focus**: Spend more time on phase 6
-- **Audience**: Adjust depth and technicality
-- **Output format**: Create presentations, workshops, or consulting reports
+### Avoid:
+- Excessive bullet points
+- Generic summaries without specifics
+- Unsourced claims
+- Jargon without explanation
+- Abstract concepts without concrete examples
 
 ## Success Metrics
 
 A successful Booksplode research project should:
 
-- ✅ Provide actionable insights, not just summaries
-- ✅ Include specific examples with sources
-- ✅ Address both strengths and limitations
-- ✅ Offer industry-specific applications
-- ✅ Be comprehensive yet readable
-- ✅ Include visual aids (tables, diagrams)
-- ✅ Cite all sources properly
-
-## Future Enhancements
-
-Potential additions to the workflow:
-
-- [ ] Automated book summary extraction
-- [ ] AI-powered case study discovery
-- [ ] Industry application templates
-- [ ] Presentation slide generation
-- [ ] Workshop facilitation guides
-- [ ] Implementation tracking tools
-- [ ] Cross-book synthesis (comparing frameworks)
+- Provide a rigorous credibility audit of the author (Phase 0)
+- Extract a formal system dynamics model with Mermaid diagrams (Phase 1)
+- Identify vulnerabilities and failure modes (Phase 2)
+- Deliver actionable, context-specific implementation steps (Phase 3)
+- Cite all sources properly
+- Include visual aids (tables, diagrams, flowcharts)
