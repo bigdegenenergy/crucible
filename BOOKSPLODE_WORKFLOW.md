@@ -18,28 +18,28 @@
 Each book gets its own folder using the following format:
 
 ```
-{author-last-name}_{book-title-slug}
+{book-title-slug}_{author-last-name}
 ```
 
 ### Rules:
+- **Book title**: Convert to lowercase, replace spaces with hyphens, remove special characters
 - **Author name**: Use last name only, lowercase, no spaces
 - **Multiple authors**: Use first author's last name only
-- **Book title**: Convert to lowercase, replace spaces with hyphens, remove special characters
 - **Maximum length**: Keep under 50 characters total
 
 ### Examples:
-- `heath_made-to-stick`
-- `cialdini_influence`
-- `kahneman_thinking-fast-and-slow`
-- `sinek_start-with-why`
-- `collins_good-to-great`
+- `made-to-stick_heath`
+- `influence_cialdini`
+- `thinking-fast-and-slow_kahneman`
+- `start-with-why_sinek`
+- `good-to-great_collins`
 
 ## Standard File Structure
 
 Each book folder contains the following standardized files:
 
 ```
-{author-last-name}_{book-title-slug}/
+{book-title-slug}_{author-last-name}/
 ├── 00_vetting.md
 ├── 01_deconstruction.md
 ├── 02_red_teaming.md
@@ -291,7 +291,7 @@ booksplode/
 │   ├── 01_deconstruction.md
 │   ├── 02_red_teaming.md
 │   └── 03_application.md
-├── heath_made-to-stick/ (Example book)
+├── made-to-stick_heath/ (Example book)
 │   ├── 00_vetting.md
 │   ├── 01_deconstruction.md
 │   └── ...
@@ -302,7 +302,7 @@ booksplode/
 
 ### Starting a New Book
 
-1. **Create folder** using naming convention: `{author}_{book-slug}`
+1. **Create folder** using naming convention: `{book-slug}_{author}`
 2. **Copy template files** from `TEMPLATE/` folder
 3. **Follow workflow phases** 0-3 in order
 4. **Commit after each phase** for version control
@@ -312,11 +312,11 @@ booksplode/
 
 ```bash
 # Create new book folder from template
-AUTHOR="author-lastname"
 BOOK="book-title-slug"
-mkdir -p "${AUTHOR}_${BOOK}"
-cp TEMPLATE/* "${AUTHOR}_${BOOK}/"
-cd "${AUTHOR}_${BOOK}"
+AUTHOR="author-lastname"
+mkdir -p "${BOOK}_${AUTHOR}"
+cp TEMPLATE/* "${BOOK}_${AUTHOR}/"
+cd "${BOOK}_${AUTHOR}"
 ```
 
 ## Quality Standards
