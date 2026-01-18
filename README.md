@@ -40,10 +40,18 @@ Inside each book folder, you will find a series of numbered Markdown files corre
 
 ## Reading List
 
-See [**READING_LIST.md**](READING_LIST.md) for books queued for research. Currently includes 10 books across categories:
-- Foundational (Computer Systems, Data Engineering, High Performance Python)
-- AI/ML Engineering (GenAI Design Patterns, GPU Programming, Edge Deployment, LLM Security)
-- Interdisciplinary & Career (Models of the Mind, Staff Engineer's Path, Make It Stick)
+See [**READING_LIST.md**](READING_LIST.md) for books queued for research. Currently includes **48 books and essays** across categories:
+
+- **Foundational** - Computer Systems, Data Engineering, High Performance Python
+- **AI/ML Engineering** - GenAI Design Patterns, GPU Programming, Edge Deployment, LLM Security, Beyond Vibe Coding
+- **Software Architecture** - Fundamentals of Software Architecture 🏆, A Philosophy of Software Design 🥈, System Design Interview
+- **Code Quality** - 99 Bottles of OOP, Refactoring, Working Effectively with Legacy Code, Tidy First?
+- **Career & Leadership** - Staff Engineer's Path, Radical Candor, The Software Engineer's Guidebook
+- **DevOps** - The DevOps Handbook, Mastering OpenTelemetry
+- **Programming** - The Practice of Programming, Grokking Concurrency, Advanced React
+- **Tech History** - In the Plex, Just for Fun, Unix: A History and a Memoir
+- **Philosophy** - Finite and Infinite Games, Thinking in Systems, Make It Stick
+- **Essays** - The Agile Manifesto, The Twelve-Factor App, Worse Is Better
 
 ## How to Use This Repository
 
