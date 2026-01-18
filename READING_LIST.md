@@ -126,11 +126,12 @@ Books queued for Booksplode research. Once research begins on a book, create its
 
 ## Software Architecture & Design
 
-### 19. Fundamentals of Software Architecture 🏆
+### 19. Fundamentals of Software Architecture 🏆 `[COMPLETE]`
 - **Authors:** Mark Richards, Neal Ford
 - **Category:** Software Architecture
 - **Source:** Book Overflow Podcast (Bracket Winner!)
 - **Folder:** `richards_fundamentals-software-architecture`
+- **Research:** Full 7-phase Booksplode analysis complete
 
 ### 20. A Philosophy of Software Design 🥈
 - **Author:** John Ousterhout
