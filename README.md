@@ -38,6 +38,13 @@ Inside each book folder, you will find a series of numbered Markdown files corre
 
 *   [**heath_made-to-stick/**](heath_made-to-stick/): Research on "Made to Stick" by Chip and Dan Heath, with a specific application to the mortgage industry.
 
+## Reading List
+
+See [**READING_LIST.md**](READING_LIST.md) for books queued for research. Currently includes 10 books across categories:
+- Foundational (Computer Systems, Data Engineering, High Performance Python)
+- AI/ML Engineering (GenAI Design Patterns, GPU Programming, Edge Deployment, LLM Security)
+- Interdisciplinary & Career (Models of the Mind, Staff Engineer's Path, Make It Stick)
+
 ## How to Use This Repository
 
 ### To Explore Existing Research
