@@ -30,6 +30,7 @@ def format_file(file_path: str) -> None:
     ext = path.suffix.lower()
 
     try:
+        # Use '--' to prevent file paths starting with '-' from being interpreted as flags
         # JavaScript/TypeScript/Web -> Prettier
         if ext in (
             ".js",
@@ -44,7 +45,7 @@ def format_file(file_path: str) -> None:
             ".svelte",
         ):
             subprocess.run(
-                ["npx", "prettier", "--write", file_path],
+                ["npx", "prettier", "--write", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
@@ -53,13 +54,13 @@ def format_file(file_path: str) -> None:
         # Python -> Black + isort
         elif ext == ".py":
             subprocess.run(
-                ["black", "--quiet", file_path],
+                ["black", "--quiet", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
             )
             subprocess.run(
-                ["isort", "--quiet", file_path],
+                ["isort", "--quiet", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
@@ -68,7 +69,7 @@ def format_file(file_path: str) -> None:
         # Go -> gofmt
         elif ext == ".go":
             subprocess.run(
-                ["gofmt", "-w", file_path],
+                ["gofmt", "-w", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
@@ -77,7 +78,7 @@ def format_file(file_path: str) -> None:
         # Rust -> rustfmt
         elif ext == ".rs":
             subprocess.run(
-                ["rustfmt", file_path],
+                ["rustfmt", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
@@ -86,7 +87,7 @@ def format_file(file_path: str) -> None:
         # Ruby -> rubocop
         elif ext == ".rb":
             subprocess.run(
-                ["rubocop", "-a", file_path],
+                ["rubocop", "-a", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,
@@ -95,7 +96,7 @@ def format_file(file_path: str) -> None:
         # Shell -> shfmt
         elif ext in (".sh", ".bash"):
             subprocess.run(
-                ["shfmt", "-w", file_path],
+                ["shfmt", "-w", "--", file_path],
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 timeout=30,

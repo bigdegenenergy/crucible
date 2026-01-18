@@ -6,6 +6,13 @@
 #   0 = Allow the action
 #   2 = Block the action (message sent to stderr becomes error for agent)
 
+# Check for jq dependency
+if ! command -v jq &> /dev/null; then
+    echo "WARNING: jq not installed - safety checks limited" >&2
+    # Allow action to proceed but with limited safety checks
+    exit 0
+fi
+
 # Read the tool input from stdin
 INPUT=$(cat)
 

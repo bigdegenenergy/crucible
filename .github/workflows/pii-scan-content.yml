@@ -158,16 +158,29 @@ jobs:
             message += `---\n`;
             message += `*This is an automated scan. If this is a false positive, the patterns above may need updating.*`;
 
-            // Post comment
+            // Post comment (skip for fork PRs due to permission limitations)
             const issueNumber = context.issue?.number || context.payload.pull_request?.number;
-            if (issueNumber) {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                body: message
-              });
-              console.log(`Posted PII alert on ${contentType} #${issueNumber}`);
+            const isForkPR = context.eventName === 'pull_request' &&
+                             context.payload.pull_request?.head?.repo?.fork === true;
+
+            if (issueNumber && !isForkPR) {
+              try {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: message
+                });
+                console.log(`Posted PII alert on ${contentType} #${issueNumber}`);
+              } catch (error) {
+                // Handle permission errors gracefully (e.g., fork PRs)
+                console.log(`Could not post comment: ${error.message}`);
+                console.log('PII findings will be shown in workflow output only.');
+              }
+            } else if (isForkPR) {
+              console.log('Fork PR detected - skipping comment due to permission limitations');
+              console.log('PII findings:');
+              console.log(message);
             }
 
             // Always fail when PII is found - this is a public repo
