@@ -12,6 +12,33 @@ Foundational text on systems thinking - stocks, flows, feedback loops, and lever
 
 ---
 
+## Open Library Metadata
+
+*Automatically fetched from [Open Library](https://openlibrary.org)*
+
+| Field | Value |
+|:------|:------|
+| **ISBN-13** | 9786555644524 |
+| **Publisher** | Editora Sextante |
+| **Published** | 13 setembro 2022 |
+| **Pages** | 256 |
+| **Editions** | 10 |
+| **Open Library** | [OL3737036W](https://openlibrary.org/works/OL3737036W) |
+
+### Cover
+
+![Book Cover](https://covers.openlibrary.org/b/id/15092993-M.jpg)
+
+### Description
+
+A clear, thoughtful, and wide-reaching exploration of complex systems, in theory and in practice. Meadows was a masterful and elegant writer and researcher, and an early voice in systems analysis at MIT and elsewhere. This book, completed from draft manuscript after Meadows' death, is both accessible and deeply thought-provoking. She connects the dots between careful descriptions of systems analysis and systems insights, and the personal, social, societal, and political implications of systems thinking.
+
+### Subjects
+
+`critical thinking`, `systems thinking`, `systems dynamics`, `complex systems`, `policy`, `Sustainable development`, `Environmental education`, `Economic development`, `System analysis`, `Simulation methods`
+
+---
+
 ## Booksplode Phases
 
 This folder contains the 4-phase Booksplode analysis:

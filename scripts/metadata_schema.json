@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Booksplode Book Metadata",
+  "description": "Schema for book metadata fetched from Open Library API",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The book's title"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "The book's subtitle, if any"
+    },
+    "authors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of author names"
+    },
+    "isbn_10": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "ISBN-10 identifiers"
+    },
+    "isbn_13": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "ISBN-13 identifiers"
+    },
+    "openlibrary_work_id": {
+      "type": "string",
+      "description": "Open Library work ID (e.g., OL45804W)"
+    },
+    "openlibrary_edition_id": {
+      "type": "string",
+      "description": "Open Library edition ID (e.g., OL7353617M)"
+    },
+    "publisher": {
+      "type": "string",
+      "description": "Primary publisher name"
+    },
+    "publishers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "All publisher names"
+    },
+    "publish_date": {
+      "type": "string",
+      "description": "Publication date as string"
+    },
+    "first_publish_year": {
+      "type": ["integer", "null"],
+      "description": "Year of first publication"
+    },
+    "number_of_pages": {
+      "type": ["integer", "null"],
+      "description": "Number of pages"
+    },
+    "subjects": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Subject classifications"
+    },
+    "subject_places": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Geographic subject references"
+    },
+    "subject_people": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "People referenced in the book"
+    },
+    "subject_times": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Time periods covered"
+    },
+    "description": {
+      "type": "string",
+      "description": "Book description or summary"
+    },
+    "first_sentence": {
+      "type": "string",
+      "description": "First sentence of the book"
+    },
+    "openlibrary_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to Open Library page"
+    },
+    "cover_url_small": {
+      "type": "string",
+      "format": "uri",
+      "description": "Small cover image URL"
+    },
+    "cover_url_medium": {
+      "type": "string",
+      "format": "uri",
+      "description": "Medium cover image URL"
+    },
+    "cover_url_large": {
+      "type": "string",
+      "format": "uri",
+      "description": "Large cover image URL"
+    },
+    "edition_count": {
+      "type": ["integer", "null"],
+      "description": "Number of editions"
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Languages available"
+    },
+    "fetch_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When metadata was fetched"
+    },
+    "data_source": {
+      "type": "string",
+      "const": "openlibrary",
+      "description": "Data source identifier"
+    }
+  },
+  "required": ["title", "data_source", "fetch_timestamp"]
+}
