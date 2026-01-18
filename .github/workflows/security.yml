@@ -1,0 +1,152 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    # Run weekly on Sundays at midnight
+    - cron: '0 0 * * 0'
+
+jobs:
+  secrets-scan:
+    name: Scan for Secrets
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: TruffleHog Secret Scan
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --only-verified
+
+  gitleaks:
+    name: Gitleaks Scan
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+  python-security:
+    name: Python Security
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit Security Scan
+        run: |
+          if [ -d "scripts" ]; then
+            find scripts -name "*.py" -exec bandit -ll {} \; || true
+          else
+            echo "No scripts directory found, skipping Python security scan"
+          fi
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
+        continue-on-error: true
+
+  pii-scan:
+    name: PII Scan
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for Personal Information
+        run: |
+          echo "Scanning for Personal Identifiable Information (PII)..."
+          echo ""
+
+          EXIT_CODE=0
+
+          # Get files to scan (exclude binaries, config files, workflow files)
+          FILES=$(find . -type f \
+            -not -path "./.git/*" \
+            -not -path "./.github/*" \
+            -not -name "*.png" -not -name "*.jpg" -not -name "*.jpeg" \
+            -not -name "*.gif" -not -name "*.ico" -not -name "*.svg" \
+            -not -name "*.woff" -not -name "*.woff2" -not -name "*.ttf" \
+            -not -name "*.pdf" -not -name "*.zip" -not -name "*.tar.gz" \
+            2>/dev/null)
+
+          echo "Checking for email addresses..."
+          EMAIL_PATTERN='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+          EMAIL_EXCLUDES='example\.com|test\.com|localhost|your-?email|user@|email@|foo@|bar@|noreply@|no-reply@|github\.com|users\.noreply\.github\.com'
+          EMAIL_FOUND=$(echo "$FILES" | xargs grep -lE "$EMAIL_PATTERN" 2>/dev/null | while read -r file; do
+            if grep -E "$EMAIL_PATTERN" "$file" 2>/dev/null | grep -vE "$EMAIL_EXCLUDES" | grep -qE "$EMAIL_PATTERN"; then
+              echo "$file"
+            fi
+          done | head -10)
+          if [ -n "$EMAIL_FOUND" ]; then
+            echo "Warning: Email addresses found in:"
+            echo "$EMAIL_FOUND" | sed 's/^/  /'
+            echo ""
+          fi
+
+          echo "Checking for phone numbers..."
+          PHONE_PATTERN='\+?1?[-.\s]?\(?[0-9]{3}\)?[-.\s]?[0-9]{3}[-.\s]?[0-9]{4}'
+          PHONE_FOUND=$(echo "$FILES" | xargs grep -lE "$PHONE_PATTERN" 2>/dev/null | head -5)
+          if [ -n "$PHONE_FOUND" ]; then
+            echo "Warning: Phone number patterns found in:"
+            echo "$PHONE_FOUND" | sed 's/^/  /'
+            echo ""
+          fi
+
+          echo "Checking for SSN patterns..."
+          SSN_PATTERN='[0-9]{3}-[0-9]{2}-[0-9]{4}'
+          SSN_FOUND=$(echo "$FILES" | xargs grep -lE "$SSN_PATTERN" 2>/dev/null | head -5)
+          if [ -n "$SSN_FOUND" ]; then
+            echo "Warning: SSN patterns found in:"
+            echo "$SSN_FOUND" | sed 's/^/  /'
+            EXIT_CODE=1
+            echo ""
+          fi
+
+          echo "Checking for credit card patterns..."
+          CC_PATTERN='[3-6][0-9]{3}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}'
+          CC_FOUND=$(echo "$FILES" | xargs grep -lE "$CC_PATTERN" 2>/dev/null | head -5)
+          if [ -n "$CC_FOUND" ]; then
+            echo "Warning: Credit card patterns found in:"
+            echo "$CC_FOUND" | sed 's/^/  /'
+            EXIT_CODE=1
+            echo ""
+          fi
+
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "PII scan complete - no critical issues found"
+          else
+            echo "PII scan found potential issues - please review"
+          fi
+
+          exit $EXIT_CODE
