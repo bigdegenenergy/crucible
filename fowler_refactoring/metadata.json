@@ -1,0 +1,29 @@
+{
+  "title": "Refactoring",
+  "subtitle": "Improving the Design of Existing Code",
+  "authors": [
+    "Martin Fowler"
+  ],
+  "isbn_13": [
+    "9780201485677"
+  ],
+  "openlibrary_work_id": "OL16551230W",
+  "openlibrary_edition_id": "OL25241157M",
+  "publisher": "Addison-Wesley Professional",
+  "publishers": [
+    "Addison-Wesley Professional"
+  ],
+  "publish_date": "1999",
+  "first_publish_year": 1999,
+  "subjects": [
+    "Software refactoring",
+    "Object-oriented programming (Computer science)"
+  ],
+  "openlibrary_url": "https://openlibrary.org/works/OL16551230W",
+  "cover_url_small": "https://covers.openlibrary.org/b/id/7087623-S.jpg",
+  "cover_url_medium": "https://covers.openlibrary.org/b/id/7087623-M.jpg",
+  "cover_url_large": "https://covers.openlibrary.org/b/id/7087623-L.jpg",
+  "edition_count": 1,
+  "fetch_timestamp": "2026-01-18T15:09:45.788272Z",
+  "data_source": "openlibrary"
+}

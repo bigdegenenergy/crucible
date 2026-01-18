@@ -1,36 +1,28 @@
-# Refactoring
+# {BOOK_TITLE}
 
-**Author(s):** Martin Fowler
+**Author(s):** {AUTHOR_NAME}
 
-**Category:** Code Quality
+**Category:** {CATEGORY}
 
 ---
 
 ## Why This Book?
 
-The definitive guide to refactoring - improving the design of existing code without changing its behavior.
+{BRIEF_DESCRIPTION}
 
 ---
 
 ## Open Library Metadata
 
-*Automatically fetched from [Open Library](https://openlibrary.org)*
+*Fetch metadata by running: `python scripts/fetch_metadata.py {FOLDER_NAME}`*
 
 | Field | Value |
 |:------|:------|
-| **ISBN-13** | 9780201485677 |
-| **Publisher** | Addison-Wesley Professional |
-| **Published** | 1999 |
-| **Editions** | 1 |
-| **Open Library** | [OL16551230W](https://openlibrary.org/works/OL16551230W) |
-
-### Cover
-
-![Book Cover](https://covers.openlibrary.org/b/id/7087623-M.jpg)
-
-### Subjects
-
-`Software refactoring`, `Object-oriented programming (Computer science)`
+| **ISBN** | *pending* |
+| **Publisher** | *pending* |
+| **Published** | *pending* |
+| **Pages** | *pending* |
+| **Open Library** | *pending* |
 
 ---
 
