@@ -40,3 +40,18 @@ Thumbs.db
 
 # Project specific
 *.log
+
+# AI Dev Toolkit local configuration
+# These files contain LOCAL-ONLY data and should never be committed:
+
+# User's notification webhook URLs (contains personal service tokens)
+.claude/notifications.json
+
+# Generated analysis artifacts (temporary files)
+.claude/artifacts/
+
+# Local performance metrics (machine-specific)
+.claude/metrics/
+
+# Backup files created during hook installation
+*.backup.*
