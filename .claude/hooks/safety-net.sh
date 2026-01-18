@@ -6,11 +6,12 @@
 #   0 = Allow the action
 #   2 = Block the action (message sent to stderr becomes error for agent)
 
-# Check for jq dependency
+# Check for jq dependency - FAIL CLOSED if missing
 if ! command -v jq &> /dev/null; then
-    echo "WARNING: jq not installed - safety checks limited" >&2
-    # Allow action to proceed but with limited safety checks
-    exit 0
+    echo "ERROR: jq is required for safety checks but is not installed." >&2
+    echo "Install jq to proceed: apt-get install jq (Debian/Ubuntu) or brew install jq (macOS)" >&2
+    # Fail closed - block action when security checks cannot run
+    exit 2
 fi
 
 # Read the tool input from stdin

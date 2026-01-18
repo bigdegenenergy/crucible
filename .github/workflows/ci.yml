@@ -50,7 +50,7 @@ jobs:
 
       - name: Validate TOML files
         run: |
-          pip install toml
+          pip install toml==0.10.2  # Pin version for reproducible builds
           python3 -c "
           import toml
           import sys

@@ -86,12 +86,9 @@ jobs:
             echo "$file -> /tmp/pr/diff_${safe_name}.patch"
           done < /tmp/pr/changed_files.txt
 
-          # Optional local context generator hook
-          if [ -f ".claude/hooks/commit-context-generator.py" ]; then
-            python3 .claude/hooks/commit-context-generator.py --base "$BASE" --head "$HEAD" --stdout > /tmp/pr/commit_context.md 2>/dev/null || echo "Context generation failed" > /tmp/pr/commit_context.md
-          else
-            echo "No commit context generator found" > /tmp/pr/commit_context.md
-          fi
+          # SECURITY: Do NOT execute scripts from the PR workspace to prevent RCE
+          # The workflow already collects sufficient context (diffs, commits, PR body)
+          echo "Context collected from git history" > /tmp/pr/commit_context.md
 
       - name: 🤖 Run Gemini Review (Quality + Malicious Intent)
         if: steps.check-key.outputs.skip != 'true'
