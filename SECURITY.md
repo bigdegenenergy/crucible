@@ -10,7 +10,6 @@ We take security seriously. If you discover a security vulnerability within this
 
 Instead, please report security issues by contacting the maintainers directly:
 
-- **GitHub:** Send a private message to [@bigdegenenergy](https://github.com/bigdegenenergy)
 - **X (Twitter):** DM [@bigdegenenergyx](https://x.com/bigdegenenergyx)
 
 ### What to Include
