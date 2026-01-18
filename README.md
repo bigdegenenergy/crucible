@@ -23,20 +23,20 @@ For a detailed breakdown of the workflow, see the [**BOOKSPLODE_WORKFLOW.md**](B
 This repository is organized by book, with each book having its own dedicated folder. The folder naming convention is:
 
 ```
-{author-last-name}_{book-title-slug}
+{book-title-slug}_{author-last-name}
 ```
 
 For example, the folder for "Made to Stick" by Chip and Dan Heath is:
 
 ```
-heath_made-to-stick/
+made-to-stick_heath/
 ```
 
 Inside each book folder, you will find a series of numbered Markdown files corresponding to the 7 phases of the Booksplode workflow.
 
 ## Current Books
 
-*   [**heath_made-to-stick/**](heath_made-to-stick/): Research on "Made to Stick" by Chip and Dan Heath, with a specific application to the mortgage industry.
+*   [**made-to-stick_heath/**](made-to-stick_heath/): Research on "Made to Stick" by Chip and Dan Heath, with a specific application to the mortgage industry.
 
 ## Reading List
 
@@ -62,7 +62,7 @@ Navigate to the folder of the book you are interested in and browse the Markdown
 ### To Add a New Book
 
 1.  **Clone the repository** to your local machine.
-2.  **Create a new folder** using the naming convention (e.g., `collins_good-to-great`).
+2.  **Create a new folder** using the naming convention (e.g., `good-to-great_collins`).
 3.  **Copy the template files** from the `TEMPLATE/` folder into your new book folder.
 4.  **Follow the 7-phase workflow** outlined in [**BOOKSPLODE_WORKFLOW.md**](BOOKSPLODE_WORKFLOW.md) to conduct your research.
 5.  **Commit your changes** and create a pull request.
