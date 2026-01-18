@@ -1,78 +1,137 @@
-> # Booksplode: A Universal Workflow for Deep Book Research
+# Booksplode
 
-**Booksplode** is a systematic workflow for conducting comprehensive research on business books and applying their principles to specific industries or use cases. This repository provides a structured system for dissecting books, extracting key insights, and creating actionable reports.
+**A systematic workflow for deep research on business and technical books.**
 
-The goal of the Booksplode system is to move beyond simple book summaries and create a deep, practical understanding of how to apply the book's ideas in the real world.
+Booksplode goes beyond simple book summaries. It's a forensic, adversarial approach to extracting real value from non-fiction—auditing author credibility, mapping causal systems, stress-testing arguments, and translating abstract concepts into actionable steps.
 
-## How It Works
+## Why Booksplode?
 
-The Booksplode workflow is a 7-phase research process that covers:
+Most book "summaries" are useless. They regurgitate key points without questioning whether those points are valid, where they might fail, or how to actually apply them. Booksplode treats every book as a hypothesis to be tested, not a gospel to be absorbed.
 
-1.  **Author Research**: Understanding the author's background and credibility.
-2.  **Core Framework Extraction**: Identifying the book's central ideas and models.
-3.  **Case Study Collection**: Gathering examples from the book.
-4.  **Real-World Applications Research**: Finding how others have applied the ideas.
-5.  **Critical Analysis**: Understanding the book's limitations and critiques.
-6.  **Industry-Specific Application**: Applying the principles to a target industry.
-7.  **Synthesis and Recommendations**: Creating a final, actionable report.
+This system helps you:
+- **Filter noise** by vetting author credibility and incentives before investing time
+- **Extract signal** by mapping the underlying causal logic, not just the stories
+- **Stress-test claims** by identifying logical fallacies and failure modes
+- **Take action** by translating theory into context-specific, executable steps
 
-For a detailed breakdown of the workflow, see the [**BOOKSPLODE_WORKFLOW.md**](BOOKSPLODE_WORKFLOW.md) file.
+## The 4-Phase Workflow
+
+Each book goes through four distinct phases, each with a specific role and output:
+
+| Phase | Name | Purpose | Output |
+|:------|:-----|:--------|:-------|
+| **Phase 0** | The Gatekeeper | Forensic credibility audit of author and text | `00_vetting.md` |
+| **Phase 1** | The Architect | Extract core logic into system dynamics model | `01_deconstruction.md` |
+| **Phase 2** | The Skeptic | Red team analysis and fallacy audit | `02_red_teaming.md` |
+| **Phase 3** | The Pragmatist | Context-specific implementation via JTBD | `03_application.md` |
+
+For detailed prompts and methodology, see [BOOKSPLODE_WORKFLOW.md](BOOKSPLODE_WORKFLOW.md).
 
 ## Repository Structure
 
-This repository is organized by book, with each book having its own dedicated folder. The folder naming convention is:
+```
+booksplode/
+├── TEMPLATE/                    # Template files for new books
+├── {book-title}_{author}/       # Individual book research folders
+│   ├── 00_vetting.md
+│   ├── 01_deconstruction.md
+│   ├── 02_red_teaming.md
+│   └── 03_application.md
+├── scripts/                     # Automation utilities
+├── READING_LIST.md              # Queue of 48+ books
+└── BOOKSPLODE_WORKFLOW.md       # Full methodology docs
+```
+
+### Folder Naming Convention
 
 ```
 {book-title-slug}_{author-last-name}
 ```
 
-For example, the folder for "Made to Stick" by Chip and Dan Heath is:
-
-```
-made-to-stick_heath/
-```
-
-Inside each book folder, you will find a series of numbered Markdown files corresponding to the 7 phases of the Booksplode workflow.
-
-## Current Books
-
-*   [**made-to-stick_heath/**](made-to-stick_heath/): Research on "Made to Stick" by Chip and Dan Heath, with a specific application to the mortgage industry.
+Examples: `thinking-in-systems_meadows`, `staff-engineers-path_reilly`, `99-bottles-of-oop_metz`
 
 ## Reading List
 
-See [**READING_LIST.md**](READING_LIST.md) for books queued for research. Currently includes **48 books and essays** across categories:
+Currently tracking **48 books and essays** across categories:
 
-- **Foundational** - Computer Systems, Data Engineering, High Performance Python
-- **AI/ML Engineering** - GenAI Design Patterns, GPU Programming, Edge Deployment, LLM Security, Beyond Vibe Coding
-- **Software Architecture** - Fundamentals of Software Architecture 🏆, A Philosophy of Software Design 🥈, System Design Interview
-- **Code Quality** - 99 Bottles of OOP, Refactoring, Working Effectively with Legacy Code, Tidy First?
-- **Career & Leadership** - Staff Engineer's Path, Radical Candor, The Software Engineer's Guidebook
-- **DevOps** - The DevOps Handbook, Mastering OpenTelemetry
-- **Programming** - The Practice of Programming, Grokking Concurrency, Advanced React
-- **Tech History** - In the Plex, Just for Fun, Unix: A History and a Memoir
-- **Philosophy** - Finite and Infinite Games, Thinking in Systems, Make It Stick
-- **Essays** - The Agile Manifesto, The Twelve-Factor App, Worse Is Better
+- **AI/ML Engineering** — GenAI Design Patterns, GPU Programming, LLM Security
+- **Software Architecture** — Fundamentals of Software Architecture, A Philosophy of Software Design
+- **Code Quality** — 99 Bottles of OOP, Refactoring, Working Effectively with Legacy Code
+- **Career & Leadership** — Staff Engineer's Path, Radical Candor
+- **DevOps** — The DevOps Handbook, Mastering OpenTelemetry
+- **Systems Thinking** — Thinking in Systems, Finite and Infinite Games
+- **Tech History** — In the Plex, Just for Fun, Unix: A History and a Memoir
 
-## How to Use This Repository
+Full list: [READING_LIST.md](READING_LIST.md)
 
-### To Explore Existing Research
+## Quick Start
 
-Navigate to the folder of the book you are interested in and browse the Markdown files in order. The `07_final_synthesis.md` file provides a comprehensive overview and actionable recommendations.
+```bash
+# Clone the repo
+git clone https://github.com/bigdegenenergy/crucible.git
+cd crucible
 
-### To Add a New Book
+# Create a new book folder
+BOOK="your-book-title"
+AUTHOR="author-lastname"
+mkdir -p "${BOOK}_${AUTHOR}"
+cp TEMPLATE/* "${BOOK}_${AUTHOR}/"
 
-1.  **Clone the repository** to your local machine.
-2.  **Create a new folder** using the naming convention (e.g., `good-to-great_collins`).
-3.  **Copy the template files** from the `TEMPLATE/` folder into your new book folder.
-4.  **Follow the 7-phase workflow** outlined in [**BOOKSPLODE_WORKFLOW.md**](BOOKSPLODE_WORKFLOW.md) to conduct your research.
-5.  **Commit your changes** and create a pull request.
+# Start with Phase 0 (vetting)
+```
 
-## Contribution Guidelines
+## Scripts
 
-We welcome contributions to the Booksplode repository! If you would like to add a new book or improve existing research, please follow the contribution guidelines outlined in the workflow document.
+The `scripts/` directory contains utilities for automation:
 
-## Why Booksplode?
+- **`openlibrary.py`** — Open Library API client for fetching book metadata, covers, and ISBNs
+- **`fetch_metadata.py`** — CLI tool to enrich book folders with metadata
 
-In a world of endless content, it's not enough to just read a book. You need to understand it, critique it, and apply it. The Booksplode system provides a structured way to do just that.
+```bash
+# Fetch metadata for a specific book
+python scripts/fetch_metadata.py --book thinking-in-systems_meadows
 
-Whether you are a business leader, a consultant, a marketer, or a lifelong learner, Booksplode can help you get the most out of every book you read.
+# Fetch metadata for all books
+python scripts/fetch_metadata.py --all
+```
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+
+### Adding a New Book
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b add-{book-name}`
+3. Create the book folder using the naming convention
+4. Copy template files and complete at least Phase 0 (vetting)
+5. Submit a pull request
+
+### Improving Existing Research
+
+- Found an error or outdated info? Open an issue or PR
+- Have a better system dynamics model? Submit it
+- Discovered counter-evidence to a book's claims? Add it to the red teaming phase
+
+### Quality Standards
+
+- Use well-structured prose, not just bullet points
+- Include sources and citations
+- Add Mermaid.js diagrams for system models
+- Provide concrete examples, not abstractions
+
+## Contact
+
+- **X (Twitter):** [@bigdegenenergyx](https://x.com/bigdegenenergyx)
+- **GitHub:** [@bigdegenenergy](https://github.com/bigdegenenergy)
+- **Issues:** [GitHub Issues](https://github.com/bigdegenenergy/crucible/issues)
+
+Questions, feedback, or book suggestions? Reach out on X or open an issue.
+
+## License
+
+This project is open source. See [LICENSE](LICENSE) for details.
+
+---
+
+*"In a world of endless content, it's not enough to just read a book. You need to audit it, stress-test it, and apply it."*
