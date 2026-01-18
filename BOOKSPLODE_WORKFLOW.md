@@ -4,6 +4,8 @@
 
 **Booksplode** is a systematic workflow for conducting comprehensive research on business books and applying their principles to specific industries or use cases. The workflow produces a structured repository of insights, examples, critiques, and actionable applications.
 
+**Default Industry Focus: Crypto & Blockchain** — Phase 6 (Industry Applications) should always apply book principles to the cryptocurrency and blockchain industry unless otherwise specified.
+
 ## Folder Naming Convention
 
 Each book gets its own folder using the following format:
