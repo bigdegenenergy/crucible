@@ -187,39 +187,47 @@ Books queued for Crucible research. Once research begins on a book, create its f
 - **Source:** Book Overflow Podcast
 - **Folder:** `team-topologies_skelton`
 
+### 25. Designing Data-Intensive Applications 🏆 `[COMPLETE]`
+
+- **Author:** Martin Kleppmann
+- **Category:** Distributed Systems / Data Engineering
+- **Why:** The definitive text on modern data systems architecture. Covers databases, replication, partitioning, transactions, consistency, batch processing, and stream processing with academic rigor and practical wisdom from LinkedIn-scale systems.
+- **Folder:** `designing-data-intensive-applications_kleppmann`
+- **Research:** Full 6-phase Crucible analysis complete
+
 ---
 
 ## Code Quality & Refactoring
 
-### 25. 99 Bottles of OOP
+### 26. 99 Bottles of OOP
 
 - **Author:** Sandi Metz
 - **Category:** Object-Oriented Design
 - **Source:** Book Overflow Podcast
 - **Folder:** `99-bottles-oop_metz`
 
-### 26. Refactoring
+### 27. Refactoring
 
 - **Author:** Martin Fowler
 - **Category:** Code Quality
 - **Source:** Book Overflow Podcast
 - **Folder:** `refactoring_fowler`
 
-### 27. Working Effectively with Legacy Code
+### 28. Working Effectively with Legacy Code
 
 - **Author:** Michael Feathers
 - **Category:** Code Quality
 - **Source:** Book Overflow Podcast
 - **Folder:** `working-effectively-legacy-code_feathers`
 
-### 28. Tidy First?
+### 29. Tidy First?
 
 - **Author:** Kent Beck
 - **Category:** Code Quality
 - **Source:** Book Overflow Podcast
 - **Folder:** `tidy-first_beck`
 
-### 29. The Clean Coder
+### 30. The Clean Coder
 
 - **Author:** Robert C. Martin (Uncle Bob)
 - **Category:** Professionalism
@@ -230,14 +238,14 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## DevOps & Operations
 
-### 30. The DevOps Handbook
+### 31. The DevOps Handbook
 
 - **Authors:** Gene Kim, Jez Humble, Patrick Debois, John Willis
 - **Category:** DevOps
 - **Source:** Book Overflow Podcast
 - **Folder:** `devops-handbook_kim`
 
-### 31. Mastering Open Telemetry
+### 32. Mastering Open Telemetry
 
 - **Author:** Steve Flanders
 - **Category:** Observability
@@ -248,28 +256,28 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## Programming Fundamentals
 
-### 32. The Practice of Programming
+### 33. The Practice of Programming
 
 - **Authors:** Brian Kernighan, Rob Pike
 - **Category:** Programming
 - **Source:** Book Overflow Podcast
 - **Folder:** `practice-of-programming_kernighan`
 
-### 33. Grokking Concurrency
+### 34. Grokking Concurrency
 
 - **Author:** Kirill Bobrov
 - **Category:** Concurrency
 - **Source:** Book Overflow Podcast
 - **Folder:** `grokking-concurrency_bobrov`
 
-### 34. Advanced React
+### 35. Advanced React
 
 - **Author:** Nadia Makarevich
 - **Category:** Frontend Development
 - **Source:** Book Overflow Podcast
 - **Folder:** `advanced-react_makarevich`
 
-### 35. Hypermedia Systems
+### 36. Hypermedia Systems
 
 - **Authors:** Carson Gross, Adam Stepinski, Deniz Akşimşek
 - **Category:** Web Development
@@ -280,35 +288,35 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## Tech History & Culture
 
-### 36. In the Plex
+### 37. In the Plex
 
 - **Author:** Steven Levy
 - **Category:** Tech History
 - **Source:** Book Overflow Podcast
 - **Folder:** `in-the-plex_levy`
 
-### 37. Just for Fun
+### 38. Just for Fun
 
 - **Authors:** Linus Torvalds, David Diamond
 - **Category:** Tech History
 - **Source:** Book Overflow Podcast
 - **Folder:** `just-for-fun_torvalds`
 
-### 38. Unix: A History and a Memoir
+### 39. Unix: A History and a Memoir
 
 - **Author:** Brian Kernighan
 - **Category:** Tech History
 - **Source:** Book Overflow Podcast
 - **Folder:** `unix-history-memoir_kernighan`
 
-### 39. Recoding America
+### 40. Recoding America
 
 - **Author:** Jennifer Pahlka
 - **Category:** Tech & Government
 - **Source:** Book Overflow Podcast
 - **Folder:** `recoding-america_pahlka`
 
-### 40. The Unicorn Project
+### 41. The Unicorn Project
 
 - **Author:** Gene Kim
 - **Category:** Tech Fiction
@@ -319,14 +327,14 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## Philosophy & Thinking
 
-### 41. Finite and Infinite Games
+### 42. Finite and Infinite Games
 
 - **Author:** James P. Carse
 - **Category:** Philosophy
 - **Source:** Book Overflow Podcast
 - **Folder:** `finite-infinite-games_carse`
 
-### 42. Thinking in Systems
+### 43. Thinking in Systems
 
 - **Author:** Donella Meadows
 - **Category:** Systems Thinking
@@ -337,14 +345,14 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## Methodology & Process
 
-### 43. Rework
+### 44. Rework
 
 - **Authors:** Jason Fried, David Heinemeier Hansson
 - **Category:** Business
 - **Source:** Book Overflow Podcast
 - **Folder:** `rework_fried`
 
-### 44. The Good News Factory
+### 45. The Good News Factory
 
 - **Author:** Kent Beck
 - **Category:** Methodology
@@ -355,28 +363,28 @@ Books queued for Crucible research. Once research begins on a book, create its f
 
 ## Essays & Articles
 
-### 45. The Agile Manifesto
+### 46. The Agile Manifesto
 
 - **Authors:** Kent Beck et al.
 - **Category:** Software Methodology
 - **Source:** Book Overflow Podcast
 - **Folder:** `agile-manifesto_beck`
 
-### 46. The Tao of Programming
+### 47. The Tao of Programming
 
 - **Author:** Geoffrey James
 - **Category:** Programming Philosophy
 - **Source:** Book Overflow Podcast
 - **Folder:** `tao-of-programming_james`
 
-### 47. The Twelve-Factor App
+### 48. The Twelve-Factor App
 
 - **Author:** Adam Wiggins
 - **Category:** Application Architecture
 - **Source:** Book Overflow Podcast (12factor.net)
 - **Folder:** `twelve-factor-app_wiggins`
 
-### 48. Worse Is Better
+### 49. Worse Is Better
 
 - **Author:** Richard P. Gabriel
 - **Category:** Software Philosophy
