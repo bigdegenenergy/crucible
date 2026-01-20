@@ -40,3 +40,7 @@ Thumbs.db
 
 # Project specific
 *.log
+
+# Claude Code artifacts
+.claude/metrics/
+.claude/artifacts/

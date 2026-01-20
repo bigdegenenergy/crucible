@@ -1,12 +1,12 @@
 # Crucible Workflow Configuration
 
-# Format: TOML
-
-# Version: 3.0 (Education Engine Edition)
-
-# Description: Advanced prompt engineering configurations for systemic knowledge extraction, comprehension, and integration.
-
-# Author Persona: Knowledge Ops Architect
+> **Version:** 3.0 (Education Engine Edition)
+>
+> **Description:** A prompt engineering specification for systemic knowledge extraction, comprehension, and integration.
+>
+> **Author Persona:** Knowledge Ops Architect
+>
+> **Note:** This is a Markdown documentation file containing prompt templates for humans and LLMs, not a machine-parseable configuration.
 
 ## Meta
 
@@ -369,11 +369,12 @@ Generate 5 high-quality flashcards in CSV format for Anki/Readwise.
 
 ## Implementation Strategy
 
-To successfully implement this workflow within a broader automation architecture (e.g., Python scripts or CI/CD pipelines), adhere to the following protocol:
+This document is a **prompt engineering specification** designed for humans and LLMs to follow, not a machine-parseable configuration file. To implement this workflow:
 
-1.  **Parsing and Loading:** Utilize a standard parser such as `tomli` (Python) or `toml-rs` (Rust) to ingest the configuration file. The structure is designed to be language-agnostic.
-2.  **Dynamic Variable Injection:** The placeholders `{BOOK_TITLE}`, `{AUTHOR_NAME}`, `{USER_ROLE}`, and `{CURRENT_CHALLENGE}` are mandatory injection points. Attempting to run the prompts without these specific context keys will result in generic, low-value hallucinations.
-3.  **Sequential Chaining:** The workflow is designed as a directed acyclic graph (DAG). The output of Phase 1 (The Mermaid.js graph) should be programmatically captured and injected as "Context" into Phase 1.5 and Phase 2. This allows the Translator to explain the _specific nodes_ and the Red Team to attack them, significantly increasing both comprehension and precision.
+1.  **Manual or LLM-Assisted Execution:** Copy the relevant phase prompt into your preferred LLM interface (ChatGPT, Claude, Gemini, etc.) and substitute the placeholders with your specific context.
+2.  **Dynamic Variable Injection:** The placeholders `{BOOK_TITLE}`, `{AUTHOR_NAME}`, `{USER_ROLE}`, and `{CURRENT_CHALLENGE}` are mandatory injection points. Replace these with your specific values before running each prompt.
+3.  **Sequential Chaining:** The workflow is designed as a directed acyclic graph (DAG). The output of Phase 1 (The Mermaid.js graph) should be provided as "Context" to Phase 1.5 and Phase 2. This allows the Translator to explain the _specific nodes_ and the Red Team to attack them, significantly increasing both comprehension and precision.
+4.  **Automation (Optional):** If building automation tooling, extract the prompts from each phase section and inject variables programmatically. The template files in `TEMPLATE/` provide the output format specifications.
 
 ---
 
