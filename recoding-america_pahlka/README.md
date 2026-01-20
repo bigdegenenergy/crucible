@@ -12,9 +12,9 @@ Why government digital services fail and how to fix them, from the founder of Co
 
 ---
 
-## Booksplode Phases
+## Crucible Phases
 
-This folder contains the 4-phase Booksplode analysis:
+This folder contains the 6-phase Crucible analysis:
 
 | Phase | File | Description |
 |:------|:-----|:------------|

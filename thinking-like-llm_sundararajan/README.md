@@ -12,9 +12,9 @@ Deep dive into understanding how LLMs process and generate text.
 
 ---
 
-## Booksplode Phases
+## Crucible Phases
 
-This folder contains the 4-phase Booksplode analysis:
+This folder contains the 6-phase Crucible analysis:
 
 | Phase | File | Description |
 |:------|:-----|:------------|

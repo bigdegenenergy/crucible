@@ -1,10 +1,12 @@
 # Phase 3: The Pragmatist - Strategic Implementation Memo
 
 ## Book Information
+
 - **Title:** {BOOK_TITLE}
 - **Author:** {AUTHOR_NAME}
 
 ## User Context
+
 - **Role:** {USER_ROLE}
 - **Industry:** {INDUSTRY}
 - **Current Challenge:** {CURRENT_CHALLENGE}
@@ -19,11 +21,11 @@
 
 ### Job Dimensions
 
-| Dimension | Description |
-|:----------|:------------|
-| **Functional** | |
-| **Social** | |
-| **Emotional** | |
+| Dimension      | Description |
+| :------------- | :---------- |
+| **Functional** |             |
+| **Social**     |             |
+| **Emotional**  |             |
 
 ---
 
@@ -32,20 +34,20 @@
 ### Concept 1: [Name]
 
 | Abstract Principle | Industry-Specific Tactic |
-|:-------------------|:-------------------------|
-| | |
+| :----------------- | :----------------------- |
+|                    |                          |
 
 ### Concept 2: [Name]
 
 | Abstract Principle | Industry-Specific Tactic |
-|:-------------------|:-------------------------|
-| | |
+| :----------------- | :----------------------- |
+|                    |                          |
 
 ### Concept 3: [Name]
 
 | Abstract Principle | Industry-Specific Tactic |
-|:-------------------|:-------------------------|
-| | |
+| :----------------- | :----------------------- |
+|                    |                          |
 
 ---
 
@@ -83,11 +85,40 @@
 
 ---
 
+## 4. The Learning Wager
+
+Identify one specific belief or behavior I must "kill" to adopt this book's advice.
+
+### The Belief/Behavior to Kill
+
+> _[What must I stop doing or believing?]_
+
+### The Ante
+
+> "I am willing to bet my time/energy on this idea because..."
+
+### The Experiment
+
+| Element             | Details   |
+| :------------------ | :-------- |
+| **Concept to Test** |           |
+| **Duration**        | 7 Days    |
+| **If it works**     | I keep it |
+| **If it fails**     | I revert  |
+
+### The Prediction
+
+> "I predict that doing [X] will result in [Y]."
+
+_Learning happens in the gap between prediction and reality._
+
+---
+
 ## Implementation Priority Matrix
 
 | Action | Impact | Effort | Priority |
-|:-------|:-------|:-------|:---------|
-| | | | |
+| :----- | :----- | :----- | :------- |
+|        |        |        |          |
 
 ---
 

@@ -12,9 +12,9 @@ Written by the leader of the OWASP Top 10 for LLM Applications project. Covers p
 
 ---
 
-## Booksplode Phases
+## Crucible Phases
 
-This folder contains the 4-phase Booksplode analysis:
+This folder contains the 6-phase Crucible analysis:
 
 | Phase | File | Description |
 |:------|:-----|:------------|

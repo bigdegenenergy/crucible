@@ -1,6 +1,6 @@
-# Booksplode Scripts
+# Crucible Scripts
 
-Scripts for automating parts of the Booksplode workflow.
+Scripts for automating parts of the Crucible workflow.
 
 ## Metadata Fetcher
 

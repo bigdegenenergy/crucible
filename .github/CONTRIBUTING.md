@@ -1,12 +1,13 @@
-# Contributing to Booksplode
+# Contributing to Crucible
 
 Thank you for your interest in contributing! This guide covers how to add new book research, improve existing analyses, and contribute to the tooling.
 
 ## Before You Start
 
 Please familiarize yourself with:
+
 - [README.md](../README.md) — Project overview
-- [BOOKSPLODE_WORKFLOW.md](../BOOKSPLODE_WORKFLOW.md) — The 4-phase research methodology
+- [CRUCIBLE_WORKFLOW.md](../CRUCIBLE_WORKFLOW.md) — The 6-phase research methodology
 - [READING_LIST.md](../READING_LIST.md) — Current book queue
 
 ## Ways to Contribute
@@ -28,6 +29,7 @@ This is the most valuable contribution. Pick a book from the reading list (or su
 5. Submit a pull request
 
 **Naming Convention:**
+
 - Lowercase, hyphens for spaces: `thinking-in-systems_meadows`
 - Use author's last name only
 - Keep under 50 characters
@@ -75,10 +77,14 @@ Each book folder should contain:
 {book-title}_{author}/
 ├── 00_vetting.md        # Phase 0: Credibility audit
 ├── 01_deconstruction.md # Phase 1: System dynamics model
+├── 01a_translation.md   # Phase 1.5: Deep comprehension (Steel Man)
 ├── 02_red_teaming.md    # Phase 2: Adversarial analysis
 ├── 03_application.md    # Phase 3: Implementation tactics
+├── 04_synthesis.md      # Phase 4: Knowledge integration
 └── assets/              # Images, diagrams (optional)
 ```
+
+> **Note:** Phase 1.5 uses `01a_` prefix for proper file sorting.
 
 ## Commit Messages
 

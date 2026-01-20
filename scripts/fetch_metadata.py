@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Booksplode Metadata Fetcher
+Crucible Metadata Fetcher
 
 Fetches and updates book metadata from Open Library API during the review process.
 This script can:
@@ -140,7 +140,9 @@ def generate_metadata_section(metadata: BookMetadata) -> str:
         lines.append(f"| **Editions** | {metadata.edition_count} |")
 
     if metadata.openlibrary_url:
-        lines.append(f"| **Open Library** | [{metadata.openlibrary_work_id}]({metadata.openlibrary_url}) |")
+        lines.append(
+            f"| **Open Library** | [{metadata.openlibrary_work_id}]({metadata.openlibrary_url}) |"
+        )
 
     lines.append("")
 
@@ -198,27 +200,33 @@ def update_readme_with_metadata(readme_path: Path, metadata: BookMetadata) -> bo
     if "## Open Library Metadata" in content:
         # Replace existing section
         pattern = r"## Open Library Metadata.*?(?=\n## |\n---|\Z)"
-        content = re.sub(pattern, metadata_section.rstrip() + "\n", content, flags=re.DOTALL)
+        content = re.sub(
+            pattern, metadata_section.rstrip() + "\n", content, flags=re.DOTALL
+        )
     else:
         # Insert after "Why This Book?" section or at the end before Status
         status_match = re.search(r"\n## Status\n", content)
-        phases_match = re.search(r"\n## Booksplode Phases\n", content)
+        phases_match = re.search(r"\n## Crucible Phases\n", content)
 
         if phases_match:
-            # Insert before Booksplode Phases
+            # Insert before Crucible Phases
             insert_pos = phases_match.start()
             content = (
-                content[:insert_pos] +
-                "\n" + metadata_section + "\n---\n" +
-                content[insert_pos:]
+                content[:insert_pos]
+                + "\n"
+                + metadata_section
+                + "\n---\n"
+                + content[insert_pos:]
             )
         elif status_match:
             # Insert before Status
             insert_pos = status_match.start()
             content = (
-                content[:insert_pos] +
-                "\n" + metadata_section + "\n---\n" +
-                content[insert_pos:]
+                content[:insert_pos]
+                + "\n"
+                + metadata_section
+                + "\n---\n"
+                + content[insert_pos:]
             )
         else:
             # Append at end
@@ -267,7 +275,7 @@ def fetch_and_update_book(
     folder_name: str,
     client: OpenLibraryClient,
     json_only: bool = False,
-    save_json: bool = True
+    save_json: bool = True,
 ) -> Optional[BookMetadata]:
     """
     Fetch metadata for a book and update its README.
@@ -307,9 +315,7 @@ def fetch_and_update_book(
 
     # Fetch from Open Library
     metadata = client.fetch_book_metadata(
-        title=search_title,
-        author=search_author,
-        isbn=search_isbn
+        title=search_title, author=search_author, isbn=search_isbn
     )
 
     if not metadata:
@@ -368,12 +374,7 @@ def process_all_books(client: OpenLibraryClient) -> dict:
     """
     folders = get_all_book_folders()
 
-    stats = {
-        "total": len(folders),
-        "success": 0,
-        "failed": 0,
-        "skipped": 0
-    }
+    stats = {"total": len(folders), "success": 0, "failed": 0, "skipped": 0}
 
     print(f"Processing {len(folders)} books...\n")
 
@@ -400,33 +401,23 @@ def main():
     parser = argparse.ArgumentParser(
         description="Fetch book metadata from Open Library",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__
+        epilog=__doc__,
     )
 
     parser.add_argument(
         "book_folder",
         nargs="?",
-        help="Book folder name (e.g., meadows_thinking-in-systems)"
+        help="Book folder name (e.g., meadows_thinking-in-systems)",
     )
     parser.add_argument(
-        "--all",
-        action="store_true",
-        help="Process all books in the repository"
+        "--all", action="store_true", help="Process all books in the repository"
+    )
+    parser.add_argument("--list", action="store_true", help="List all book folders")
+    parser.add_argument(
+        "--json", action="store_true", help="Output JSON only (don't update files)"
     )
     parser.add_argument(
-        "--list",
-        action="store_true",
-        help="List all book folders"
-    )
-    parser.add_argument(
-        "--json",
-        action="store_true",
-        help="Output JSON only (don't update files)"
-    )
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Re-fetch even if metadata.json exists"
+        "--force", action="store_true", help="Re-fetch even if metadata.json exists"
     )
 
     args = parser.parse_args()
@@ -455,11 +446,7 @@ def main():
         parser.print_help()
         sys.exit(1)
 
-    fetch_and_update_book(
-        args.book_folder,
-        client,
-        json_only=args.json
-    )
+    fetch_and_update_book(args.book_folder, client, json_only=args.json)
 
 
 if __name__ == "__main__":
