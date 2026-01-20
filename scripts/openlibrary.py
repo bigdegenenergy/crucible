@@ -4,7 +4,7 @@ Open Library API Client
 This module provides a Python client for the Open Library API.
 https://openlibrary.org/developers/api
 
-Used to enhance book metadata during the Booksplode review process.
+Used to enhance book metadata during the Crucible review process.
 """
 
 import json
@@ -17,7 +17,7 @@ from typing import Optional
 
 
 # User-Agent header required by Open Library API
-USER_AGENT = "Booksplode/1.0 (https://github.com/bigdegenenergy/booksplode)"
+USER_AGENT = "Crucible/1.0 (https://github.com/bigdegenenergy/crucible)"
 
 # API endpoints
 SEARCH_API = "https://openlibrary.org/search.json"
@@ -105,10 +105,7 @@ class OpenLibraryClient:
 
         self._last_request_time = time.time()
 
-        request = urllib.request.Request(
-            url,
-            headers={"User-Agent": USER_AGENT}
-        )
+        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
 
         try:
             with urllib.request.urlopen(request, timeout=30) as response:
@@ -128,7 +125,7 @@ class OpenLibraryClient:
         title: Optional[str] = None,
         author: Optional[str] = None,
         query: Optional[str] = None,
-        limit: int = 5
+        limit: int = 5,
     ) -> list[dict]:
         """
         Search for books by title, author, or general query.
@@ -228,11 +225,7 @@ class OpenLibraryClient:
         return self._make_request(url)
 
     @staticmethod
-    def get_cover_url(
-        cover_id: int,
-        size: str = "M",
-        key_type: str = "id"
-    ) -> str:
+    def get_cover_url(cover_id: int, size: str = "M", key_type: str = "id") -> str:
         """
         Generate a cover image URL.
 
@@ -247,10 +240,7 @@ class OpenLibraryClient:
         return f"{COVERS_API}/{key_type}/{cover_id}-{size}.jpg"
 
     def fetch_book_metadata(
-        self,
-        title: str,
-        author: Optional[str] = None,
-        isbn: Optional[str] = None
+        self, title: str, author: Optional[str] = None, isbn: Optional[str] = None
     ) -> Optional[BookMetadata]:
         """
         Fetch comprehensive metadata for a book.
@@ -330,10 +320,7 @@ class OpenLibraryClient:
         return None
 
     def _find_best_match(
-        self,
-        results: list[dict],
-        title: str,
-        author: Optional[str]
+        self, results: list[dict], title: str, author: Optional[str]
     ) -> Optional[dict]:
         """Find the best matching result from search."""
         title_lower = title.lower()
@@ -445,8 +432,7 @@ def main():
     # Example: Fetch metadata for "Thinking in Systems"
     print("Fetching metadata for 'Thinking in Systems'...")
     metadata = client.fetch_book_metadata(
-        title="Thinking in Systems",
-        author="Donella Meadows"
+        title="Thinking in Systems", author="Donella Meadows"
     )
 
     if metadata:

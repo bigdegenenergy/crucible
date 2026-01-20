@@ -12,9 +12,9 @@ Deep dive into OpenTelemetry for distributed tracing, metrics, and logging in mo
 
 ---
 
-## Booksplode Phases
+## Crucible Phases
 
-This folder contains the 4-phase Booksplode analysis:
+This folder contains the 6-phase Crucible analysis:
 
 | Phase | File | Description |
 |:------|:-----|:------------|

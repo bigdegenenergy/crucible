@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Booksplode Book Metadata",
+  "title": "Crucible Book Metadata",
   "description": "Schema for book metadata fetched from Open Library API",
   "type": "object",
   "properties": {

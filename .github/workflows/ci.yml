@@ -45,7 +45,7 @@ jobs:
           required_files=(
             "README.md"
             "LICENSE"
-            "BOOKSPLODE_WORKFLOW.md"
+            "CRUCIBLE_WORKFLOW.md"
             "READING_LIST.md"
           )
 

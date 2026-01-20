@@ -184,7 +184,7 @@ jobs:
           shared_header = f"""\
           Project Context:
           - Repo: {os.environ.get("GITHUB_REPOSITORY", "")}
-          - This is a book research repository (Booksplode) containing markdown analyses of business/technical books
+          - This is a book research repository (Crucible) containing markdown analyses of business/technical books
           - Also contains Python scripts for metadata fetching
           - Review should check for quality of research, accuracy of claims, and code correctness
 

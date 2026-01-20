@@ -12,9 +12,9 @@ Framework for being a good boss by caring personally while challenging directly.
 
 ---
 
-## Booksplode Phases
+## Crucible Phases
 
-This folder contains the 4-phase Booksplode analysis:
+This folder contains the 6-phase Crucible analysis:
 
 | Phase | File | Description |
 |:------|:-----|:------------|
