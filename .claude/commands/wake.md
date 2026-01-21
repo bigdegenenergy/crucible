@@ -10,13 +10,24 @@ You are waking up to address review feedback from the Review Agent (Gemini).
 
 ## Step 1: Pull Latest Changes
 
+First, verify we're on a named branch (not detached HEAD), then pull:
+
 ```bash
-git pull origin $(git branch --show-current)
+BRANCH=$(git branch --show-current)
+if [ -z "$BRANCH" ]; then
+  echo "ERROR: Detached HEAD state - cannot pull. Checkout a branch first."
+  exit 1
+fi
+git pull origin "$BRANCH"
 ```
 
 ## Step 2: Check for Review Instructions
 
 Look for `REVIEW_INSTRUCTIONS.md` in the repository root.
+
+<!-- Note: The !`...` syntax below is Claude Code's inline command execution.
+     It runs the command and injects output into this prompt at load time.
+     The error redirect ensures clean output if file doesn't exist. -->
 
 !`ls -la REVIEW_INSTRUCTIONS.md 2>/dev/null || echo "No REVIEW_INSTRUCTIONS.md found"`
 
